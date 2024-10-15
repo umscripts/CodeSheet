@@ -1,5 +1,4 @@
 require('dotenv').config();
-const config = require('./config.json');
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
@@ -14,7 +13,7 @@ const { authenticationToken } = require('./utilities');
 app.use(express.json());
 app.use(cors({ origin: "*" }));
 
-mongoose.connect(config.connnectionString);
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
 
 app.listen(8000);
 app.get('/', (req, res) => {
