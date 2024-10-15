@@ -19,8 +19,11 @@ app.use(cors({
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
 
 app.listen(8000);
+// app.get('/', (req, res) => {
+//     res.json({ data: "Hello" });
+// });
 app.get('/', (req, res) => {
-    res.json({ data: "Hello" });
+    res.redirect('/login'); // Redirect to the /login route
 });
 
 app.post('/create-account', async (req, res) => {
