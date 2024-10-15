@@ -11,7 +11,10 @@ const jwt = require('jsonwebtoken');
 const { authenticationToken } = require('./utilities');
 
 app.use(express.json());
-app.use(cors({ origin: "*" }));
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://umcodesheet.netlify.app/'],
+    credentials: true,
+}));
 
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
 
